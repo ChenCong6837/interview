@@ -12,7 +12,6 @@ var obj = {
             console.log(this.names);
         }
     }
-    
 }
 obj.showName();                                     //输出什么？   "B"
 obj.returnName();                                   //输出什么？   "B"
