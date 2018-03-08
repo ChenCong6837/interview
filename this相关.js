@@ -1,3 +1,4 @@
+//======================================================================================
 var names = "A";
 var obj = {
     names:"B",
@@ -22,3 +23,16 @@ obj.returnFunctionName().call(names)                //输出什么？   undefine
 var newObj = obj.returnFunctionName().bind(window);
 newObj.call(obj)                                    //输出什么？   "A"
 //为什么最后一个输出"A"？因为bind指向this对象后  再一次调用的话  this指向不会被改变
+
+//======================================================================================
+var big = "A";
+
+var obj = {
+    big:"B",
+    showBig:function(){
+        return this.big;
+    }
+}
+obj.showBig.call(big);          //ƒ big() { [native code] }
+
+//======================================================================================
