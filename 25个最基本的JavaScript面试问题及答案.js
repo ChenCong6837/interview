@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-03-28 13:39:29
+ * @Last Modified time: 2018-03-29 22:04:48
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -76,3 +76,33 @@ console.log("b defined? " + (typeof b !== 'undefined'));
  * 需要注意的是，在严格模式下（即使用 use strict），语句 var a = b = 3; 将生成 ReferenceError: b is not defined 的
  * 运行时错误，从而避免任何否则可能会导致的 headfakes /bug。（还是你为什么理所当然地在代码中使用 use strict 的最好例子！）
  */
+
+//======================================================================================
+//3. 下面的代码将输出什么到控制台 
+
+var myObject = {
+    foo: "bar",
+    func: function() {
+        var self = this;
+        console.log("outer func: this.foo = " + this.foo);
+        console.log("outer func: self.foo = " + self.foo);
+        (function() {
+            console.log("inner func: this.foo = " + this.foo);
+            console.log("inner func: self.foo = " + self.foo);
+        }());
+    }
+};
+myObject.func();
+
+/**
+ * 上面的代码将输出一下内容到控制台：
+ *      outer func: this.foo = bar
+ *      outer func: self.foo = bar
+ *      inner func: this.foo = undefined
+ *      inner func: self.foo = bar
+ * 
+ * 在外部函数中，this 和 self 两者都指向了 myObject ，因此两者都可以正确地引用和访问 foo 。
+ * 在内部函数中，this 不再指向 myObject 。其结果是， this.foo 没有在内部函数中被定义，相反，
+ * 指向到本地的变量 self 保持在范围内，并且可以访问。（在 ECMA 5 之前，在内部函数中的 this 将
+ * 指向全局的 window 对象；反之，因为作为 ECMA 5，内部函数中的功能 this 是未定义的）。 
+ * */
