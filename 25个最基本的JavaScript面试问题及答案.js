@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-03-30 11:00:51
+ * @Last Modified time: 2018-03-30 11:19:13
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -108,3 +108,16 @@ myObject.func();
  * */
 
 //======================================================================================
+//4. 封装 JavaScript 源文件的全部内容到一个函数块有什么意义及理由？ 
+
+/**
+ * 这是一个越来越普遍的做法，被许多流行的 JavaScript 库（jQuery，Node.js等）采用。
+ * 这种技术创建了一个围绕文件全部内容的闭包，也许是最重要的是，创建了一个私有的命名空间，
+ * 从而有助于避免不同 JavaScript 模块和库之间潜在的命名冲突。
+ * 
+ * 这种技术的另一个特点是，允许一个易于引用的（假设更短的）别名用于全局变量。这通常用于，例如，
+ * jQuery 插件中。jQuery 允许你使用 jQuery.noConflict() ，来禁用 $ 引用到 jQuery 命名空间。
+ * 在完成这项工作之后，你的代码依然可以使用 $ 利用这种闭包技术，如下所示：
+ * 
+ * (function($) { jQuery plugin code referencing $ })(jQuery);
+ */
