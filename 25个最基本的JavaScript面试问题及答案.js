@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-03-29 22:04:48
+ * @Last Modified time: 2018-03-30 11:00:51
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -106,3 +106,5 @@ myObject.func();
  * 指向到本地的变量 self 保持在范围内，并且可以访问。（在 ECMA 5 之前，在内部函数中的 this 将
  * 指向全局的 window 对象；反之，因为作为 ECMA 5，内部函数中的功能 this 是未定义的）。 
  * */
+
+//======================================================================================
