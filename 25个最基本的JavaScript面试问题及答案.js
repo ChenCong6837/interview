@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-03-31 19:49:48
+ * @Last Modified time: 2018-04-01 15:31:46
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -122,7 +122,7 @@ myObject.func();
  * (function($) { jQuery plugin code referencing $ })(jQuery);
  */
 
- //======================================================================================
+//======================================================================================
  //5. JavaScript 源文件的开头包含 use strict 有什么意义和好处？
 
  /**
@@ -145,3 +145,44 @@ myObject.func();
   *     (6) 在 delete 使用无效时抛出错误。delete 操作符（用于从对象中删除属性）不能用在对象不可配置的属性
   *         上。当试图删除一个不可配置的属性时，非严格代码将默默地失败，而严格模式将在这样的情况下抛出异常。
   */
+
+//======================================================================================
+//6. 考虑以下两个函数，它们会返回相同的东西吗？为什么相同或为什么不相同？
+
+    function foo1() {
+        return {
+            bar: "hello"
+        };
+    }
+
+    function foo2() {
+        return 
+        {
+            bar: "hello"
+        };
+    }
+
+/**
+ * 出乎意料的是，这两个函数返回的内容并不相同。更确切地说是：
+ *  console.log("foo1 returns");
+ *  console.log(foo1());
+ *  console.log("foo2 returns");
+ *  console.log(foo2());
+ * 将产生：
+ *  foo1 returns:
+ *  Object {bar: "hello"}
+ *  foo2 returns:
+ *  undefined
+ * 
+ * 这不仅令人惊讶，而且特别让人困惑的是，foo2() 返回 undefined 却没有任何错误抛出。
+ * 
+ * 原因与这样一个事实有关，即分号在 JavaScript 是一个可选项（尽管省略它们通常是非常糟糕的形式）。其结果就是，
+ * 当碰到 foo2() 中包含 return 语句的代码行（代码行上没有其他任何代码），分号会立即自动插入到返回语句之后。
+ * 
+ * 也不会抛出错误，因为代码的其余部分是完全有效的，即使它没有得到调用或做任何事情（相当于它就是一个未使用的代码块，
+ * 定义了等同于字符串 "hello" 的属性 bar）。
+ * 
+ * 这种行为也支持放置左括号于 JavaScript 代码行的末尾，而不是新代码行开头的约定。正如这里所示，这部仅仅只是 JavaScript 
+ * 中的一个风格偏好。
+ * 
+ * */ 
