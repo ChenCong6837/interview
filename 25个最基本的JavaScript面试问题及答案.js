@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-01 15:31:46
+ * @Last Modified time: 2018-04-02 16:18:53
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -186,3 +186,21 @@ myObject.func();
  * 中的一个风格偏好。
  * 
  * */ 
+
+//======================================================================================
+//7. NaN是什么？它的类型是什么？你如何可靠地测试一个值是否等于NaN？
+
+/**
+ * NaN属性代表一个“不是数字”的值。这个特殊的值是因为运算符不能执行而导致的，不能执行的原因要么是因为其中的运算对象之一
+ * 非数字（例如，“abc”/4），要么是因为运算的结果非数字（例如，除数为零）。
+ * 
+ * 虽然这看上去很简单，但 NaN 有一些令人惊讶的特点，如果你不知道它们的话，可能会导致令人头痛的 bug。
+ * 
+ * 首先，虽然 NaN 意味着“不是数字”，但它们的类型不管你信不信，是 Number：
+ *      console.log(typeof NaN === "number");   //log "true"
+ * 此外，NaN 和任何东西比较，甚至是它自己本身！，结果为 false ：
+ *      console.log(NaN === NaN);  // log "false"
+ * 一种半可靠的方法来测试一个数字是否等于 NaN，是使用内置函数 isNaN() ,但即使使用 isNaN() 依然并非是一个完美的解决方案。
+ * 一个更好的解决办法是使用 value !== value ，如果值等于 NaN，只会产生 true。另外，ES6 提供了一个新的 Number.isNaN() 函数，
+ * 这是一个不同的函数，并且比老的全局 isNaN() 函数更可靠。 
+ */
