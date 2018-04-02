@@ -12,4 +12,6 @@
 * 第二，上诉解决方案将返回 true ，当 bar 是一个数组（例如，当 var bar = [];）的时候。在大多数情况下，这是期望行为，因为数组是真正的对象，但当你也想对数组返回 false 时，你可以修改上面的解决方案为：
 `console.log((bar !== null) && (typeof bar === "object") && (toString.call(bar) !== "[object Array]"));`  
 或者，如果你使用 jQuery 的话：  
-`console.log((bar !== null) && (typeof bar === "object") && (! $.isArray(bar)));`
+`console.log((bar !== null) && (typeof bar === "object") && (! $.isArray(bar)));`  
+
+## 感觉markdown写这个不是很好写，特别是代码部分
