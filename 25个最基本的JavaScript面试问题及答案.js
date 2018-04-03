@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-02 16:18:53
+ * @Last Modified time: 2018-04-03 18:56:02
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -204,3 +204,16 @@ myObject.func();
  * 一个更好的解决办法是使用 value !== value ，如果值等于 NaN，只会产生 true。另外，ES6 提供了一个新的 Number.isNaN() 函数，
  * 这是一个不同的函数，并且比老的全局 isNaN() 函数更可靠。 
  */
+
+//======================================================================================
+//7. 下面代码将输出什么？并解释原因。
+
+    console.log(0.1 + 0.2);  //0.30000000000000004
+    console.log(0.1 + 0.2 == 0.3); //false
+
+/**
+ * 一个稍微有点编程基础的回答是：“你不能确定。可能会输出 “0.3” 和 “true”，也可能不会。JavaScript 中的数字和浮点精度的处理
+ * 相同，因此，可能不会总是产生预期的结果。”以上所提供的例子就是一个演示了这个问题的典型例子。可以用两数相减的绝对值小于一个
+ * 很小的数来判断相等。例如：
+ */
+    console.log(Math.abs(0.1 + 0.2 - 0.3) <　0.0000001); //true
