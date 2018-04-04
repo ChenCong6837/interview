@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-03 18:56:02
+ * @Last Modified time: 2018-04-04 19:32:23
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -206,7 +206,7 @@ myObject.func();
  */
 
 //======================================================================================
-//7. 下面代码将输出什么？并解释原因。
+//8. 下面代码将输出什么？并解释原因。
 
     console.log(0.1 + 0.2);  //0.30000000000000004
     console.log(0.1 + 0.2 == 0.3); //false
@@ -217,3 +217,46 @@ myObject.func();
  * 很小的数来判断相等。例如：
  */
     console.log(Math.abs(0.1 + 0.2 - 0.3) <　0.0000001); //true
+
+//9. 讨论写函数 isInteger(x) 的可能方法，用于确定 x 是否为整数。
+
+/**
+ * 这可能听起来小菜一碟，但事实上，这很琐碎，因为 ECMAScript 6 引入了一个新的正以此为目的的 Number.isInteger() 函数。
+ * 然而，之前的 ECMAScript 6 ，会更复杂一点，因为没有提供类似的 Number.isInteger() 方法。
+ * 问题是，在 ECMAScript 规则说明中，整数只概念上存在：即，数字值总是存储为浮点值。
+ * 考虑到这一点，最简单又最干净的 ECMAScript 6 之前的解决方法（同时也非常稳健地返回 false，即使一个非数字的值，如字
+ * 符串或 null ，被传递给函数）如下：
+ */
+
+    function isInteger(x) {
+        return (x ^ 0) === x;
+    }
+
+ //下面的解决方法也是可行的，虽然不如上面那个方法优雅：
+    function isInteger(x) {
+        return Math.round(x) === x;
+    }
+
+//请注意 Math.ceil() 和 Math.floor() 在上面的实现中等同于 Math.round() 。或：
+    function isInteger(x) {
+        return (typeof x === 'number') && (x % 1 === 0);
+    }
+
+//相当普遍的一个不正确的解决方案是：
+    function isInteger(x) {
+        return parseInt(x, 10) === x;
+    } 
+
+/**
+ * 虽然这个以 parseInt 函数为基础的方法在 x 取许多值时都能工作良好，但一旦x取值相当大的时候，就会无法工作。问题在于
+ * parseInt() 在解析数字之前强制其第一个参数到字符串。因此，一旦数目变得足够大，它的字符串就会表达为指数形式（例如， 1e+21）。
+ * 因此，parseInt() 函数就会去解析 1e+21，但当到达e字符串的时候，就会停止解析，因此只会返回值1。注意：
+ * > String(1000000000000000000000)
+ *  '1e+21'
+ * 
+ * > parseInt(1000000000000000000000, 10)
+ * 1
+ * 
+ * > parseInt(1000000000000000000000, 10) === 1000000000000000000000
+ * false
+ */
