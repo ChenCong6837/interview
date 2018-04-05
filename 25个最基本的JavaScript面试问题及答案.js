@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-05 13:49:35
+ * @Last Modified time: 2018-04-05 13:50:42
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -270,7 +270,7 @@ myObject.func();
     setTimeout(function() {console.log(2)}, 1000);
     setTimeout(function() {console.log(3)}, 0);
     console.log(4);
-}) 
+})(); 
 
 //答案：1 4 3 2
 /**
