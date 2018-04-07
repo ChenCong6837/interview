@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-05 13:50:42
+ * @Last Modified time: 2018-04-07 11:52:31
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -285,4 +285,52 @@ myObject.func();
  * 当setTimeout()的第二个参数为0的时候，它的意思是“尽快”执行指定的函数。具体而言，函数的执行会放置在事件队列的下一个计时器开始。
  * 但是请注意，这不是立即执行：函数不会被执行除非下一个计时器开始。这就是为什么在上述例子中，调用console.log(4)发生在调
  * 用console.log(3)之前（因为调用 console.log(3)是通过setTimeout被调用的，因此会稍微延迟）。
+ */
+
+ //======================================================================================
+ // 11.写一个简单的函数（少于80个字符），要求返回一个布尔值指明字符串是否为回文结构。
+
+    function isPalindrome(str) {
+        str = str.replace(/\W/g, '').toLowerCase();
+        return (str == str.split('').reverse().join(''));
+    }
+
+// 例如：
+    console.log(isPalindrome("level"));                   // logs 'true'
+    console.log(isPalindrome("levels"));                  // logs 'false'
+    console.log(isPalindrome("A car, a man, a maraca"));  // logs 'true'
+
+ //======================================================================================
+ //12. 写一个sum方法，在使用下面任一语法调用时，都可以正常工作。
+    console.log(sum(2,3));  // outputs 5
+    console.log(sum(2)(3));  // outputs 5
+
+//至少有两种方法可以做到：
+//方法1：
+    function sum(x) {
+        if(arguments.length == 2) {
+            return arguments[0] + arguments[1]; 
+        } else {
+            return function(y) { return x + y;};
+        }
+    }
+/**
+ * 在JavaScript中，函数可以提供到arguments对象的访问，arguments对象提供传递到函数的实际参数的访问。
+ * 这使我们能够使用length属性来确定在运行时传递给函数的参数数量。如果传递两个参数，那么只需加在一起，并返回。
+ * 否则，我们假设它被以sum(2)(3)这样的形式调用，所以我们返回一个匿名函数，这个匿名函数合并了传递到sum()的参
+ * 数和传递给匿名函数的参数。
+ */
+//方法2：
+    function sum(x, y) {
+        if(y !== undefined){
+            return x + y;
+        } else {
+            return function(y) {return x + y;};
+        }
+    }
+/**
+ * 当调用一个函数的时候，JavaScript不要求参数的数目匹配函数定义中的参数数量。如果传递的参数数量大于函数定义中参
+ * 数的数量，你是名人多余参数将简单地被忽略。另一方面，如果传递的参数数量小于函数定义中的参数数量，那么缺少的参
+ * 数在函数中被引用时将会给一个undefined值。所以，在上面的例子中简单地检查第2个参数是否未定义，就可以相应地确定
+ * 函数被调用以及进行的方式。
  */
