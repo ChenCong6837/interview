@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-07 11:52:31
+ * @Last Modified time: 2018-04-08 09:45:35
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -334,3 +334,50 @@ myObject.func();
  * 数在函数中被引用时将会给一个undefined值。所以，在上面的例子中简单地检查第2个参数是否未定义，就可以相应地确定
  * 函数被调用以及进行的方式。
  */
+
+//======================================================================================
+//13. 闭包相关很经典的一道
+//请看下面代码片段：
+    for(var i = 0; i < 5; i++) {
+        var btn = document.createElement('button');
+        btn.appendChild(document.createTextNode('Button' + i));
+        btn.addEventListener('click', function(){console.log(i);});
+        document.body.appendChild(btn);
+    }
+/**
+ * (a)当用户点击 “button4” 的时候回输出什么到控制台，为什么？ (b)提供一个或多个备用的可按预期工作的实现方案。
+ * 
+ * (a)无论用户点击什么按钮，数字5将总会输出到控制台。这是因为，当onclick方法被调用（对于任何按钮）的时候，for循环已经
+ * 结束，变量i已经获得了5的值。（面试者如果能够谈一谈有关如何执行上下文，可变对象，激活对象和内部“范围”属性有助于闭包
+ * 行为，则可以加分）。
+ * (b)要让代码工作的关键是，通过传递到一个新创建的函数对象，在每次传递通过for循环时，捕捉到i值。下面是三种可能实现的
+ * 方案：
+*/
+
+//1：
+for(var i = 0; i < 5; i++) {
+    var btn = document.createElement('button');
+    btn.appendChild(document.createTextNode('Button' + i));
+    btn.addEventListener('click',(function(i) {
+        return function() {console.log(i);};
+    })(i));
+    document.body.appendChild(btn);
+}
+
+//2. 或者，你可以封装全部调用到新匿名函数中的 btn.addEventListener :
+for(var i = 0; i < 5; i++) {
+    var btn = document.createElement('button');
+    btn.appendChild(document.createTextNode('Button' + i));
+    (function(i) {
+        btn.addEventListener('click', function(){console.log(i);});
+    })(i);
+    document.body.appendChild(btn);
+}
+
+//3. 也可以调用数组对象的本地forEach方法来替代for循环：
+['a', 'b', 'c', 'd', 'e'].forEach(function(value, i){
+    var btn = document.createElement('button');
+    btn.appendChild(document.createTextNode('Button' + i));
+    btn.addEventListener('click', function() {console.log(i);});
+    document.body.appendChild(btn);
+});
