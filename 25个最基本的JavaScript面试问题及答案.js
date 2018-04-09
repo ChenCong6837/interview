@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-08 09:45:35
+ * @Last Modified time: 2018-04-09 15:21:31
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -381,3 +381,30 @@ for(var i = 0; i < 5; i++) {
     btn.addEventListener('click', function() {console.log(i);});
     document.body.appendChild(btn);
 });
+
+//======================================================================================
+//14. 下面的代码将输出什么到控制台，为什么？
+    var arr1 = "john".split('');
+    var arr2 = arr1.reverse();
+    var arr3 = "jones".split('');
+    arr2.push(arr3);
+    console.log("array 1: length = " + arr1.length + " last = " + arr1.slice(-1));
+    console.log("array 2: length = " + arr2.length + " last = " + arr2.slice(-1));
+/**
+ * 输出结果是：
+ * "array 1: length=5 last=j,o,n,e,s"
+ * "array 2: length=5 last=j,o,n,e,s"
+ * arr1和arr2在上述代码执行之后，两者相同了，原因是：
+ *      (1) 调用数组对象的reverse()方法并不只返回反顺序的阵列，它也反转了数组本身的顺序（即，在这种
+ *          情况下，指的是arr1）。
+ *      (2) reverse()方法返回一个到数组本身的引用（在这种情况下即，arr1）。其结果为，arr2仅仅是一个
+ *          到arr1的引用（而不是副本）。因此，当对arr2做了任何事情（即当我们调用arr2.push（arr3）;）时，
+ *          arr1也会受到影响，因为arr1和arr2引用的是同一个对象。
+ * 这里有几个侧面点有时候会让你回答这个问题的时候，阴沟里翻船：
+ * 传递数组到另一个数组的push()方法会让整个数组作为单个元素映射到数组的末端。其结果是，语句arr2.push(arr3);在
+ * 其整体中添加arr3作为一个单一的元素到arr2的末端（也就是说，它并没有连接两个数组，连接数组是concat()方法的目的）。
+ * 和Python一样，JavaScript标榜数组方法嗲用中的负数下标，例如slice()可作为引用数组末尾元素的方法：例如，-1下标
+ * 表示数组中的最后一个元素，等等。
+*/
+
+//======================================================================================
