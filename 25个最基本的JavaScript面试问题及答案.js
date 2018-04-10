@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-10 10:52:17
+ * @Last Modified time: 2018-04-10 12:51:01
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -424,6 +424,7 @@ for(var i = 0; i < 5; i++) {
     NaN
 /**  这里的根本问题是，JavaScript（ECMAScript）是一种弱类型语言，它可对值进行自动类型转换，以适应正在执行的操作。
  * 让我们通过上面的例子来说明这是如何做到的。
+ * 
  * 例1：1 + "2" + "2" 输出："122" 说明： 1 + "2" 是执行的第一个操作。由于其中一个运算对象（"2"）是字符串，JavaScript会假设
  * 它需要执行字符串连接，因此，会将 1 的类型转换为 "1"， 1 + "2"结果就是 "12"。然后， "12" + "2" 就是 "122"。
  * 
@@ -444,3 +445,31 @@ for(var i = 0; i < 5; i++) {
  * 例6： "A" - "B" + 2 输出： NaN 说明：参见前一个例子， "A" - "B" 结果为 NaN。但是，应用任何运算符到NaN与其他任何的数字运
  * 算对象，结果仍然是 NaN。
  */
+
+//======================================================================================
+//16. 下面的递归代码在数组列表偏大的情况下会导致堆栈溢出。在保留递归模式的基础上，你怎么解决这个问题？
+    var list = readHugeList();
+    var nextListItem = function() {
+        var item = list.pop();
+        if(item) {
+            //process the list item...
+            nextListItem();
+        }
+    };
+//潜在的堆栈溢出可以通过修改 nextListItem 函数来避免：
+    var list = readHugeList();
+    var nextListItem = function() {
+        var item = list.pop();
+        if(item) {
+            //process the list item....
+            setTimeout(nextListItem, 0);
+        }
+    }
+/**
+ * 堆栈溢出之所以会被消除，是因为事件循环操纵了递归，而不是调用堆栈。当 nextListItem 运行时，如果 item 不为空，
+ * timeout 函数（nextListItem）就会被推到事件队列，该函数退出，因此就清空调用堆栈。当事件队列运行timeout事件，
+ * 且进行到下一个item时，定时器被设置为再次调用nextListItem。因此，该方法从头到尾没有直接的递归调用，所以无论
+ * 迭代次数的多少，调用堆栈保持清空的状态。
+ */
+
+//======================================================================================
