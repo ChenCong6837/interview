@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-10 12:51:01
+ * @Last Modified time: 2018-04-10 15:06:59
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -472,4 +472,34 @@ for(var i = 0; i < 5; i++) {
  * 迭代次数的多少，调用堆栈保持清空的状态。
  */
 
+//======================================================================================
+//17. JavaScript中的“闭包”是什么？请举一个例子。
+/**
+ * 闭包是一个可以访问外部（封闭）函数作用域链中的变量的内部函数。闭包可以访问三种范围中的变量：这三个范围具体
+ * 为：（1）自己范围内的变量，（2）封闭函数范围内的变量，以及（3）全局变量。
+ * 下面是一个简单的例子：
+ */
+    var globalVar = "xyz";
+    (function outerFunc(outerArg) {
+        var outerVar = 'a';
+        (function innerFunc(innerArg) {
+            var innerVar = 'b';
+            console.log(
+                "outerArg = " + outerArg + "\n" +
+                "innerArg = " + innerArg + "\n" +
+                "outerVar = " + outerVar + "\n" +   
+                "innerVar = " + innerVar + "\n" +
+                "globalVar = " +　globalVar);
+        })(456);
+    })(123);
+/**
+ * 在上面的例子中，来自于 innerFunc，outerFunc和全局命名空间的变量都在innerFunc的范围内。因此，上面的代码将输出
+ * 如下：
+*/
+    outerArg = 123
+    innerArg = 456
+    outerVar = a
+    innerVar = b
+    globalVar = xyz
+    
 //======================================================================================
