@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-12 15:00:57
+ * @Last Modified time: 2018-04-12 18:20:39
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -573,3 +573,15 @@ for(var i = 0; i < 5; i++) {
  * b = 3
  */
 
+ //======================================================================================
+ //20. 执行下面的代码时将输出什么？请解释。
+    console.log(false == '0');
+    console.log(false === '0');
+//代码将输出：
+    true
+    false
+/**
+ * 在JavaScript中了，有两种等式运算符。三个等于运算符 === 的作用类似传统的等于运算符：如果两侧的表达式有着相
+ * 同的类型和相同的值，那么计算结果为true。而双等运算符，会只强制比较它们的值。因此，总体上而言，使用 === 而
+ * 不是 == 的做法更好。!==和!=同理。
+ */
