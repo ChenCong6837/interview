@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-10 15:06:59
+ * @Last Modified time: 2018-04-12 14:11:22
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -503,3 +503,18 @@ for(var i = 0; i < 5; i++) {
     globalVar = xyz
     
 //======================================================================================
+//18. 下面的代码将输出什么：
+    for(var i = 0; i < 5; i++) {
+        setTimeout(function() { console.log(i);}, i * 1000);
+    }
+/**
+ * 解释你的答案。闭包在这里能起什么作用？ 
+ * 上面的代码不会按预期显示值0，1,2,3和4，而是会显示5,5,5,5和5。
+ * 原因是，在循环中执行的每个函数将整个循环完成之后被执行，因此，将会引用存储在i中的最后一个值，那就是5。
+ * 闭包可以通过为每次迭代创建一个唯一的范围，存储范围内变量的每个唯一的值，来防止这个问题，如下：
+ */
+    for(var i = 0; i < 5; i++) {
+        (function(x){
+            setTimeout(function() {console.log(x);}, x * 1000);
+        })(i);
+    }
