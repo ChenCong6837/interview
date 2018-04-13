@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-13 09:52:11
+ * @Last Modified time: 2018-04-13 09:59:39
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -617,4 +617,18 @@ for(var i = 0; i < 5; i++) {
  *      f(8): returns 8 * f(7), which is 40320
  *      f(9): returns 9 * f(8), which is 362880
  *      f(10): returns 10 * f(9), which is 3628800
+ */
+
+//======================================================================================
+//23. 请看下面的代码段。控制台将输出什么，为什么？
+    (function(x) {
+        return (function(y) {
+            console.log(x);
+        })(2)
+    })(1);
+/**
+ * 控制台将输出1，即使从来没有在函数内部设置过x的值。原因是：
+ * 闭包是一个函数，连同在闭包创建的时候，其范围内的所有变量或函数一起。在JavaScript中，闭包是作为一个“内部函数”
+ * 实施的：即，另一个函数主体内定义的函数。闭包的一个重要特征是，内部函数仍然有权访问外部函数的变量。
+ * 因此，在本例中，由于x未在函数内部定义，因此在外部函数范围中搜索定义变量x，且被发现具有1的值。
  */
