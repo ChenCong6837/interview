@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-13 09:44:25
+ * @Last Modified time: 2018-04-13 09:52:11
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -599,4 +599,22 @@ for(var i = 0; i < 5; i++) {
  * 原因为：当设置对象属性时，JavaScript会暗中字符串化参数值。在这种情况下，由于b和c都是对象，因此它们都将被
  * 转换为“[object Object]”。结果就是，a[b]和a[c]均相当于于a["[object Object]"]，并可以互换使用。因此，设置
  * 或引用a[c]和设置或引用a[b]完全相同。
+ */
+
+//======================================================================================
+//22. 以下代码将输出什么到控制台？并解释你的答案。
+    console.log((function f(n) {return ((n > 1) ? n * f(n - 1) : n)})(10));
+/**
+ * 代码将输出10!的值（即3628800）。
+ * 原因是：命名函数 f()递归调用本身，当调用f(1)的时候，只简单地返回1。下面就是它的调用过程：
+ *      f(1): returns n, which is 1
+ *      f(2): returns 2 * f(1), which is 2
+ *      f(3): returns 3 * f(2), which is 6
+ *      f(4): returns 4 * f(3), which is 24
+ *      f(5): returns 5 * f(4), which is 120
+ *      f(6): returns 6 * f(5), which is 720
+ *      f(7): returns 7 * f(6), which is 5040
+ *      f(8): returns 8 * f(7), which is 40320
+ *      f(9): returns 9 * f(8), which is 362880
+ *      f(10): returns 10 * f(9), which is 3628800
  */
