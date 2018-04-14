@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-14 20:20:23
+ * @Last Modified time: 2018-04-14 20:31:46
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -656,3 +656,20 @@ for(var i = 0; i < 5; i++) {
  *      var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);
  */
 
+//======================================================================================
+/**
+ * 25. 创建一个给定页面上的一个DOM元素，就会去访问元素本身及其所有子元素（不只是它的直接子元素）的函数。
+ * 对于每个被访问的元素，函数应该传递元素到提供的回调函数。
+ * 
+ * 此函数的参数为：
+ *  ——DOM元素
+ *  ——回调函数（将DOM元素作为其参数）
+ * 访问数（DOM）的所有元素时经典的深度优先搜索算法应用。下面是一个示范的解决方案：
+ */
+    function Traverse(p_element, p_callback) {
+        p_callback(p_element);
+        var list = p_element.children;
+        for(var i = 0; i < list.length; i++) {
+            Traverse(list[i], p_callback); // recursive call
+        }
+    }
