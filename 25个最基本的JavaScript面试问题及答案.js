@@ -2,7 +2,7 @@
  * @Author: ChenCong 
  * @Date: 2018-03-27 19:36:08 
  * @Last Modified by: ChenCong
- * @Last Modified time: 2018-04-13 09:59:39
+ * @Last Modified time: 2018-04-14 20:20:23
  */
 
 //转载自：http://www.codeceo.com/25-essential-javascript-interview-questions.html
@@ -632,3 +632,27 @@ for(var i = 0; i < 5; i++) {
  * 实施的：即，另一个函数主体内定义的函数。闭包的一个重要特征是，内部函数仍然有权访问外部函数的变量。
  * 因此，在本例中，由于x未在函数内部定义，因此在外部函数范围中搜索定义变量x，且被发现具有1的值。
  */
+
+//======================================================================================
+//24. 下面的代码将输出什么到控制台，为什么？
+    var hero = {
+        _name: 'Chen Cong',
+        getSecretIdentity: function() {
+            return this._name;
+        }
+    };
+
+    var stoleSecretIdentity = hero.getSecretIdentity;
+    console.log(stoleSecretIdentity());
+    console.log(hero.getSecretIdentity());
+/**
+ * 代码有什么问题，以及应该如何修复。
+ * 代码将输出：
+ *      undefined
+ *      Chen Cong
+ * 第一个console.log之所以输出undefined，是因为我们正在从hero对象提取方法，所以调用了全局上下文中（即窗口
+ * 对象）的stoleSecretIdentity()，而在此全局上下文中，_name属性不存在。
+ * 其中一种修复stoleSecretIdentity()函数的方法如下：
+ *      var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);
+ */
+
