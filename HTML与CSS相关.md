@@ -42,3 +42,25 @@
 <input type='text' name='Name' id='Name'/>
 <label>Date:<input type='text' name='B'></label>
 ```
+
+## 6.position的值以及定位原点
+
+**absolute**
+
+&emsp;&emsp;生成绝对定位的元素。相对于值不为static的第一个父元素进行定位。
+
+**fixed**
+
+&emsp;&emsp;生成绝对定位的元素，固定定位。相对于浏览器窗口进行定位。
+
+**relative**
+
+&emsp;&emsp;生成相对定位的元素。相对于其正常位置进行定位。
+
+**static**
+
+&emsp;&emsp;默认值。没有定位，元素出现在正常流中。
+
+**inherit**
+
+&emsp;&emsp;从父元素继承position的值。
