@@ -64,3 +64,7 @@
 **inherit**
 
 &emsp;&emsp;从父元素继承position的值。
+
+## 7.超链接样式设置顺序
+
+&emsp;&emsp;被点击访问过的超链接不再具有hover和active样式，解决方法是改变CSS属性的排列顺序：<font color=red>**L-V-H-A**</font>: a:link{}, a:visited{}, a:hover{}, a:active{}
