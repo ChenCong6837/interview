@@ -67,4 +67,10 @@
 
 ## 7.超链接样式设置顺序
 
-&emsp;&emsp;被点击访问过的超链接不再具有hover和active样式，解决方法是改变CSS属性的排列顺序：<font color=red>**L-V-H-A**</font>: a:link{}, a:visited{}, a:hover{}, a:active{}
+&emsp;&emsp;被点击访问过的超链接不再具有hover和active样式，解决方法是改变CSS属性的排列顺序：<font color=red>**L-V-H-A**</font>: a:link{}, a:visited{}, a:hover{}, a:active{}。
+
+## 8. ::before和:after中双冒号和单冒号有什么区别及它们的作用
+
+&emsp;&emsp;单冒号（:）用于**CSS3伪类**，双冒号（::）用于**CSS3伪元素**。（伪元素由双冒号和伪元素名称组成）。
+&emsp;&emsp;双冒号是在当前规范中引入的，用于区分伪类和伪元素。不过浏览器需要同时支持旧的已经存在的伪元素写法，比如：:first-line、:first-letter、:before、:after等，而新的在CSS3中引入的伪元素则不允许再支持旧的单冒号的写法。
+&emsp;&emsp;想让插入的内容出现在其他内容前，使用::before，否则，使用::after；在代码顺序上，::after生成的内容也比::before生成的内容靠后。如果按堆栈视角，::after生成的内容会在::before生成的内容之上。
