@@ -78,3 +78,20 @@
 ## 9.设置元素浮动后，该元素的display值
 
 &emsp;&emsp;自动变成了<font color=red>**display:block**</font>。
+
+## 10.CSS选择符有哪些，哪些属性可以继承
+
+1. **!important**选择器。
+2. **id选择器（#myid）**
+3. **类选择器（.myclassname）**
+4. **标签选择器（div, h1, p）**
+5. **相邻选择器（h1+p）**
+6. **子选择器（ul>li）**
+7. **后代选择器（li a）**
+8. **通配符选择器（*）**
+9. **属性选择器（a[rel='external']）**
+10. **伪类选择器（a:hover， li:nth-child）**
+ 
+ **可继承的样式：** font-size、font-family、color、ul、li、dl、dd、dt;
+
+ **不可继承的样式：** border、padding、margin、width、height。
