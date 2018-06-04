@@ -92,14 +92,14 @@
 9. **属性选择器（a[rel='external']）**
 10. **伪类选择器（a:hover， li:nth-child）**
  
- **可继承的样式：** font-size、font-family、color、ul、li、dl、dd、dt;
+**可继承的样式：** font-size、font-familycolor、ul、li、dl、dd、dt;
 
- **不可继承的样式：** border、padding、margin、width、height。
+**不可继承的样式：** border、padding、marginwidth、height。
 
- ## 11.CSS的优先级计算
+## 11.CSS的优先级计算
 
- &emsp;&emsp;优先级就近原则，同权重情况下样式定义最近者为准；载入样式以最后载入的定位为准；
+&emsp;&emsp;优先级就近原则，同权重情况下样式定义近者为准；载入样式以最后载入的定位为准；
 
-  &emsp;&emsp;优先级为（同权重）：内联样式表（标签内部）>嵌入样式表（当前文件中）>外部样式表（外部文件中）。
+&emsp;&emsp;优先级为（同权重）：内联样式表（标内部）>嵌入样式表（当前文件中）>外部样式表（外部件中）。
 
-   &emsp;&emsp;!important > id > class > tag，important比内联优先级高。
+&emsp;&emsp;!important > id > class > tagimportant比内联优先级高。
