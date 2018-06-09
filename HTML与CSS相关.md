@@ -121,3 +121,7 @@
 ## 14.让页面中的字体变清晰，变细用CSS怎么做？
 
 &emsp;&emsp;**-webkit-font-smoothing:antialiased;** 这里，antialiased的意思是抗锯齿、反混淆的意思。
+
+## 15.display:inline-block什么时候会显示间隙？
+
+&emsp;&emsp;移除空格、使用margin赋值、使用font-size:0、letter-spacing、word-spacing。
