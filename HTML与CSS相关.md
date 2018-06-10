@@ -125,3 +125,9 @@
 ## 15.display:inline-block什么时候会显示间隙？
 
 &emsp;&emsp;移除空格、使用margin赋值、使用font-size:0、letter-spacing、word-spacing。
+
+## 16. img的alt与title有何异同
+
+&emsp;&emsp;**a:alt(alt text):** 为不能显示图像、窗体或applets的用户代理（UA），alt属性用来指定替换文字。替换文字的语言有lang属性指定。（在IE浏览器下会没有title时把alt当成tool tip显示）
+
+&emsp;&emsp;**title(tool tip):** 该属性为设置该属性的元素提供建议性的信息。
