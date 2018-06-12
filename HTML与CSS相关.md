@@ -133,3 +133,9 @@
 &emsp;&emsp;**a:alt(alt text):** 为不能显示图像、窗体或applets的用户代理（UA），alt属性用来指定替换文字。替换文字的语言有lang属性指定。（在IE浏览器下会没有title时把alt当成tool tip显示）
 
 &emsp;&emsp;**title(tool tip):** 该属性为设置该属性的元素提供建议性的信息。
+
+## 17. strong与em的异同
+
+&emsp;&emsp;**em**：表现为斜体，语义表示强调；
+
+&emsp;&emsp;**strong**：表现为粗体，语义为强烈语气，强调程度超过em。
