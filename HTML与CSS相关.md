@@ -143,3 +143,7 @@
 ## 18. 为什么利用多个域名来存储网站资源会更有效。
 
 &emsp;&emsp;CDN缓存更方便、突破浏览器并发限制、节约cookie带宽、节约主域名的连接数，优化页面响应速度、防止不必要的安全问题。
+
+## 19. cookies、sessionStorage和localStorage的区别。
+
+&emsp;&emsp;sessionStorage用于本地存储一个会话(session)中的数据，这些数据只有在同一个会话中的页面才能够访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久的本地化存储，除非主动删除数据，否则数据是永远不会消失的。
