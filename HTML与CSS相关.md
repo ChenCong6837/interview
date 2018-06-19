@@ -147,3 +147,5 @@
 ## 19. cookies、sessionStorage和localStorage的区别。
 
 &emsp;&emsp;sessionStorage用于本地存储一个会话(session)中的数据，这些数据只有在同一个会话中的页面才能够访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久的本地化存储，除非主动删除数据，否则数据是永远不会消失的。
+
+&emsp;&emsp;webstorage和cookie的区别：Web storage的概念和cookie相似，区别是它是为了更大容量的存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。除此之外，web storage拥有setItem、getItem、removeItem、clear等方法，不想cookie需要前端开发者自己封装setCookie、getCookie。但是cookie也是不可或缺的：cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在，而web storage仅仅是为了在本地“存储”数据而生。
