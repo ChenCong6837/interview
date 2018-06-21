@@ -150,3 +150,11 @@
 
 &emsp;&emsp;webstorage和cookie的区别：web storage的概念和cookie相似，区别是它是为了更大容量的存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。除此之外，web storage拥有setItem、getItem、removeItem、clear等方法，不想cookie需要前端开发者自己封装setCookie、getCookie。但是cookie也是不可或缺的：cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在，而web storage仅仅是为了在本地“存储”数据而生。
 
+## 20. src与href的区别
+
+&emsp;&emsp;src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。
+
+&emsp;&emsp;src是 **source** 的缩写，指向外部资源的位置，指向的内容将会 **嵌入到文档中当前标签所在的位置**；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本、img图片和frame等元素。像：`<script src="myJS.js"></script>` 。当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也是如此，类似于将所指向资源嵌入当前的标签内，这也是为什么将js脚本放在底部而不是头部。
+
+
+
