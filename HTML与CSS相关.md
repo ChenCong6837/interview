@@ -144,7 +144,7 @@
 
 &emsp;&emsp;CDN缓存更方便、突破浏览器并发限制、节约cookie带宽、节约主域名的连接数，优化页面响应速度、防止不必要的安全问题。
 
-## 19. cookies、sessionStorage和localStorage的区别。
+## 19. cookies、sessionStorage和localStorage的区别
 
 &emsp;&emsp;sessionStorage用于本地存储一个会话(session)中的数据，这些数据只有在同一个会话中的页面才能够访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久的本地化存储，除非主动删除数据，否则数据是永远不会消失的。
 
@@ -158,4 +158,6 @@
 
 &emsp;&emsp;href是 **Hypertext Reference** 的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加`<link href="commom.css" rel="stylesheet"/>`，那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议 **使用link方式**来加载css，而不是使用@import方式。
 
+## 21. 网页制作用到的图片格式有哪些
 
+&emsp;&emsp;png-8、png-24、jpeg、gif、svg。但是最重要的是 **WebP**，Webp格式是Google开发的一种旨在加快图片加载速度的图片格式。图片压缩体积大约只有jpeg的2/3，并能节省大量的服务器带宽资源和数据空间。Facebook、eBay等知名网站已经开始测试并使用Webp格式。在质量相同的情况下，WebP格式图像的体积要比jpeg格式图像小40%
