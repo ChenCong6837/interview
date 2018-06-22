@@ -160,4 +160,4 @@
 
 ## 21. 网页制作用到的图片格式有哪些
 
-&emsp;&emsp;png-8、png-24、jpeg、gif、svg。但是最重要的是 **WebP**，Webp格式是Google开发的一种旨在加快图片加载速度的图片格式。图片压缩体积大约只有jpeg的2/3，并能节省大量的服务器带宽资源和数据空间。Facebook、eBay等知名网站已经开始测试并使用Webp格式。在质量相同的情况下，WebP格式图像的体积要比jpeg格式图像小40%
+&emsp;&emsp;png-8、png-24、JPEG、gif、svg。但是最重要的是 **WebP**，Webp格式是Google开发的一种旨在加快图片加载速度的图片格式。图片压缩体积大约只有JPEG的2/3，并能节省大量的服务器带宽资源和数据空间。Facebook、eBay等知名网站已经开始测试并使用Webp格式。在质量相同的情况下，WebP格式图像的体积要比JPEG格式图像小40%
